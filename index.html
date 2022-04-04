@@ -10,19 +10,46 @@
 <body>
 
     <div class="alert-box" id="alert">
-        <p>Alert 박스</p>
+        <p>No ID given</p>
     </div>
-    <button onclick="togglebox()">button</button>
+
+    <button id="id">id</button>
+    <button id="pw">pw</button>
+    <input type="button" id="target1" value="button1" />
+    <input type="button" id="target2" value="button2" />
 
     <script>
 
-        function togglebox() {
+        function togglebox(event) {
+            console.log(event.target.id);
+            if (event.target.id === 'id') {
+                document.getElementById('alert').innerHTML = 'no id'
+            } else {
+                document.getElementById('alert').innerHTML = 'no pw'
+            }
+
             if (document.getElementById('alert').style.display === "block") {
                 document.getElementById('alert').style.display = 'none';
             } else {
                 document.getElementById('alert').style.display = 'block';
             }
         }
+
+        document.getElementById('id').addEventListener('click', togglebox);
+        document.getElementById('pw').addEventListener('click', togglebox);
+
+        function btn_listener(event){
+            switch(event.target.id){
+                case 'target1':
+                    alert(1);
+                    break;
+                case 'target2':
+                    alert(2);
+                    break;
+            }
+        }
+        document.getElementById('target1').addEventListener('click', btn_listener);
+        document.getElementById('target2').addEventListener('click', btn_listener);
 
     </script>
 </body>
