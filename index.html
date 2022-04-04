@@ -9,10 +9,21 @@
 </head>
 <body>
 
-    <div class="alert-box" id="alert">Alert 박스</div>
-    <button onclick="document.getElementById('alert').style.display = 'block';">button</button>
+    <div class="alert-box" id="alert">
+        <p>Alert 박스</p>
+    </div>
+    <button onclick="togglebox()">button</button>
 
     <script>
+
+        function togglebox() {
+            if (document.getElementById('alert').style.display === "block") {
+                document.getElementById('alert').style.display = 'none';
+            } else {
+                document.getElementById('alert').style.display = 'block';
+            }
+        }
+
     </script>
 </body>
 </html>
